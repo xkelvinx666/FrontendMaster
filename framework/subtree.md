@@ -20,4 +20,5 @@
     git rm src/components
     git subtree pull --prefix=src/components http://github.com/xxx/xxxx.git master-2020-01-19
     ```
-#### 注意使用subtree可能会有特殊git异常，一定要按步骤进行操作
+
+*注意使用subtree可能会有特殊git异常，一定要按步骤进行操作*

@@ -1,5 +1,7 @@
 # 前端本地构建工具(webpack)
+
 > 仅讨论webpack方案
+
 ## 一个入口
 使用webpack，要记住一个entry对应一个输出的js，[HTML](https://webpack.docschina.org/plugins/html-webpack-plugin)和[CSS](https://webpack.docschina.org/plugins/mini-css-extract-plugin/)都是根据插件(plugins)配置对js里的信息进行提取使用。
 
