@@ -1,0 +1,396 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>业务字段抽象 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="abstract-view.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    开篇引导
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" >
+            
+                <span>
+            
+                    
+                    技术架构演进
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../framework/isolation.html">
+            
+                <a href="../framework/isolation.html">
+            
+                    
+                    前后端代码分离
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../framework/independent.html">
+            
+                <a href="../framework/independent.html">
+            
+                    
+                    前后端开发独立
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.3" data-path="../framework/tool.html">
+            
+                <a href="../framework/tool.html">
+            
+                    
+                    前端本地构建工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.4" data-path="../framework/formatter.html">
+            
+                <a href="../framework/formatter.html">
+            
+                    
+                    前端开发规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.5" data-path="../framework/subtree.html">
+            
+                <a href="../framework/subtree.html">
+            
+                    
+                    多项目公共代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" >
+            
+                <span>
+            
+                    
+                    代码设计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.2.1" data-path="abstract-field.html">
+            
+                <a href="abstract-field.html">
+            
+                    
+                    业务字段抽象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.2" data-path="abstract-view.html">
+            
+                <a href="abstract-view.html">
+            
+                    
+                    字段与对应实现抽象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.3" data-path="ioc.html">
+            
+                <a href="ioc.html">
+            
+                    
+                    控制反转表单变化逻辑
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >业务字段抽象</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4E1A;&#x52A1;&#x5B57;&#x6BB5;&#x62BD;&#x8C61;">&#x4E1A;&#x52A1;&#x5B57;&#x6BB5;&#x62BD;&#x8C61;</h1>
+<blockquote>
+<p>&#x8868;&#x5355;&#x505A;&#x7684;&#x597D;&#xFF0C;&#x4E0B;&#x73ED;&#x4E0B;&#x7684;&#x65E9;</p>
+</blockquote>
+<h2 id="&#x52A8;&#x6001;&#x7EC4;&#x4EF6;">&#x52A8;&#x6001;&#x7EC4;&#x4EF6;</h2>
+<p>&#x52A8;&#x6001;&#x7EC4;&#x4EF6;&#x4F5C;&#x4E3A;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x4E24;&#x4E2A;&#x5B9E;&#x73B0;(&#x7EC4;&#x4EF6;)&#x4E4B;&#x95F4;&#x4E0D;&#x76F4;&#x63A5;&#x4F9D;&#x8D56;&#x3002;</p>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html" target="_blank">Vue&#x52A8;&#x6001;&#x7EC4;&#x4EF6;</a> <a href="https://zh-hans.reactjs.org/docs/introducing-jsx.html" target="_blank">JSX</a></p>
+</blockquote>
+<h2 id="&#x6E32;&#x67D3;&#x6A21;&#x7248;">&#x6E32;&#x67D3;&#x6A21;&#x7248;</h2>
+<p>&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x6E32;&#x67D3;&#x6A21;&#x7248;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x8BA9;&#x5BF9;&#x5E94;&#x6620;&#x5C04;&#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EA;&#x9700;&#x4F20;&#x5165;&#x914D;&#x7F6E;&#x548C;&#x6570;&#x636E;&#xFF0C;&#x6A21;&#x7248;&#x6E32;&#x67D3;&#x7684;&#x8868;&#x5355;&#x5373;&#x53EF;&#x81EA;&#x52A8;&#x548C;&#x7EC4;&#x4EF6;&#x7ED1;&#x5B9A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> endTime = {
+  key: <span class="hljs-string">&apos;end_time&apos;</span>,                <span class="hljs-comment">// &#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x7684;key</span>
+  label: <span class="hljs-string">&apos;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&apos;</span>,               <span class="hljs-comment">// &#x8868;&#x5355;&#x5C55;&#x793A;&#x65F6;&#x7684;&#x4E2D;&#x6587;&#x6807;&#x7B7E;</span>
+  type: <span class="hljs-string">&apos;datetime&apos;</span>,               <span class="hljs-comment">// &#x8868;&#x5355;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;&#x6240;&#x6E32;&#x67D3;&#x7684;&#x5BF9;&#x5E94;&#x7C7B;&#x578B;</span>
+  disabled: <span class="hljs-literal">true</span>,                 <span class="hljs-comment">// &#x662F;&#x5426;&#x7981;&#x7528;&#x6B64;&#x9009;&#x9879;</span>
+  placeholder: <span class="hljs-string">&apos;2020-01-20&apos;</span>,      <span class="hljs-comment">// &#x9ED8;&#x8BA4;placeholder&#x63D0;&#x793A;&#x6587;&#x5B57;</span>
+  required: <span class="hljs-literal">true</span>,                 <span class="hljs-comment">// &#x8BE5;&#x5B57;&#x6BB5;&#x662F;&#x5426;&#x5FC5;&#x586B;</span>
+  editComponent: <span class="hljs-literal">undefined</span>,        <span class="hljs-comment">// &#x7F16;&#x8F91;&#x578B;&#x8868;&#x5355;&#x7684;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;</span>
+  listComponent: <span class="hljs-literal">undefined</span>        <span class="hljs-comment">// &#x5C55;&#x793A;&#x578B;&#x8868;&#x5355;(&#x8868;&#x683C;)&#x7684;&#x52A8;&#x6001;&#x7EC4;&#x4EF6;</span>
+}
+</code></pre>
+<pre><code class="lang-vue"><template>
+    <el-form>
+        <template v-for="{key, label, type, disabled, placeholder, required, editComponent} in configs">
+            <el-form-item :key="key" :label="label" :required="required">
+              <component v-if="editComponent" :is="editComponent" v-model="params[key]"></component>
+              <el-date-time-picker v-else-if="type === &apos;datetime&apos;" v-model="params[key]" :disabled="disabled">
+                <!--省略其他-->
+            </el-date-time-picker></el-form-item>
+        </template>
+    </el-form>
+</template>
+<script>
+export default {
+    props: {
+        configs: {
+          type: Array,
+          required: true
+        },
+        params: {
+          type: Object,
+          required: true
+        }
+    }
+}
+</script>
+</code></pre>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="abstract-view.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 字段与对应实现抽象">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"业务字段抽象","level":"1.1.2.1","depth":3,"next":{"title":"字段与对应实现抽象","level":"1.1.2.2","depth":3,"path":"code-design/abstract-view.md","ref":"code-design/abstract-view.md","articles":[]},"previous":{"title":"代码设计","level":"1.1.2","depth":2,"ref":"","articles":[{"title":"业务字段抽象","level":"1.1.2.1","depth":3,"path":"code-design/abstract-field.md","ref":"code-design/abstract-field.md","articles":[]},{"title":"字段与对应实现抽象","level":"1.1.2.2","depth":3,"path":"code-design/abstract-view.md","ref":"code-design/abstract-view.md","articles":[]},{"title":"控制反转表单变化逻辑","level":"1.1.2.3","depth":3,"path":"code-design/ioc.md","ref":"code-design/ioc.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"code-design/abstract-field.md","mtime":"2020-01-20T09:21:11.814Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-20T09:22:07.300Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
