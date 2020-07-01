@@ -22,3 +22,28 @@
     ```
 
 *注意使用subtree可能会有特殊git异常，一定要按步骤进行操作*
+
+### 某些时候可能会遇到git subtree push 错误，例如
+```
+cache for 36f0152e4226d4c4191653af7f992ede7564fba0 already exists! 
+/usr/local/Cellar/git/2.25.1/libexec/git-core/git-subtree: 
+line 757: 38466 Done eval "$grl" 38467 Segmentation fault: 11 | 
+while read rev parents; do process_split_commit "$rev" "$parents" 0; done
+```
+这个问题暂时无最优解，[stackoverflow讨论](https://stackoverflow.com/questions/57033081/git-subtree-push-fail-applications-xcode-app-contents-developer-usr-libexec-gi) 
+如果担心遇到这个问题建议不要使用subtree，可以通过下述多仓库git解决
+
+## 多git仓库开发
+
+公共仓库通过独立的git仓库，每一个项目都需要拉自己项目在次公共git仓库建一个项目命名空间的分支管理体系
+
+```
+公共仓库
+
+master -> a-project/master      -> a-project/develop
+                                -> a-project/feature-xxxx
+       -> other-project/master  -> other-project/develop
+                                -> other-project/feature-xxxx
+```
+
+通过独立的仓库，根本上避免了上述的subtree问题，麻烦的地方在于git相关操作都要进行两次，好在可以通过git hook解决大部分场景
