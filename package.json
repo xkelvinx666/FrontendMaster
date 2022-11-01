@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/xkelvinx666/FrontendMaster#readme",
   "dependencies": {
-    "gitbook": "^2.6.9"
+    "gitbook": "^3.2.3"
   }
 }
